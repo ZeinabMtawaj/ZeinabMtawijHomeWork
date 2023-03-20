@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.RecursiveAction;
 
 public class Frequency extends RecursiveAction {
-    public long frequency =0;
+    public long frequency;
     int arr[], lo, hi,number;
 
     public Frequency(int[] arr, int lo, int hi, int number) {
@@ -34,17 +34,25 @@ public class Frequency extends RecursiveAction {
             left.join();
             frequency = left.frequency + right.frequency;
         } else {
-            frequency =computeSeq();
+            for (int i = lo; i <= hi; ++i) {
+                if (arr[i]==number)
+                    frequency +=1;
             }
+        }
     }
 
     public void computeStream() {
-        frequency = Arrays.stream(arr).asLongStream().parallel().findAny().stream().count();
+        frequency = Arrays.stream(arr)
+                .parallel()
+                .filter(x -> x == number)
+                .count();
 
     }
 
     public void computeStreamSeq() {
-        frequency = Arrays.stream(arr).asLongStream().findAny().stream().count();
+        frequency = Arrays.stream(arr)
+                .filter(x -> x == number)
+                .count();
 
     }
 }

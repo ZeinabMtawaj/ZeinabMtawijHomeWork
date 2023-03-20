@@ -21,7 +21,10 @@ public class FrequencyTest extends TestCase {
     }
 
     private int[] intStream(int size) {
-        IntStream intStream = IntStream.range(1, size);
+        Random rd = new Random();
+        int min = 1;
+        int max = 100000;
+        IntStream intStream = rd.ints(size, min, max + 1);
         return intStream.toArray();
     }
 
