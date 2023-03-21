@@ -30,7 +30,7 @@ public class FrequencyTest extends TestCase {
 
     public void testFrequencySeq() {
 
-        int size = 100000000;
+        int size = 1000000000;
         int[] arr = randomArray(size);
 
         Frequency frequency = new Frequency(arr, 0, arr.length - 1,arr[2]);
@@ -44,7 +44,7 @@ public class FrequencyTest extends TestCase {
     public void testFrequencyPP() {
         System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","7");
 
-        int size = 100000000;
+        int size = 1000000000;
         int[] arr = randomArray(size);
 
         Frequency frequency = new Frequency(arr, 0, arr.length - 1,arr[2]);
@@ -58,7 +58,7 @@ public class FrequencyTest extends TestCase {
     public void testFrequencyStream() {
         System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","7");
 
-        int size = 100000000;
+        int size = 1000000000;
         int[] arr = randomArray(size);
 
         Frequency frequency = new Frequency(arr, 0, arr.length - 1,arr[2]);
@@ -72,7 +72,7 @@ public class FrequencyTest extends TestCase {
     public void testFrequencyStreamSeq() {
         System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","7");
 
-        int size = 100000000;
+        int size = 1000000000;
         int[] arr = randomArray(size);
 
         Frequency frequency = new Frequency(arr, 0, arr.length - 1,arr[2]);

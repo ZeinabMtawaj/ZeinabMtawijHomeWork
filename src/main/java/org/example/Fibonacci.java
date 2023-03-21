@@ -15,9 +15,14 @@ public class Fibonacci extends RecursiveTask<Long> {
 
     public Long compute() {
 
+        if (n <=1){
+            return n;
+        }
+
         if (memo.containsKey(n)) {
             return memo.get(n);
         }
+
 
 
         if(n > 20) {
