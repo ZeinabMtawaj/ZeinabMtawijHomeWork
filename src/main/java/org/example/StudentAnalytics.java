@@ -107,7 +107,9 @@ public final class StudentAnalytics {
      */
     public String mostCommonFirstNameOfInactiveStudentsParallelStream(
             final Student[] studentArray) {
-        Map<String, Long> temp = Arrays.stream(studentArray).parallel()
+        Map<String, Long> temp = Arrays.stream(studentArray)
+                .parallel()
+                .filter(x -> x.checkIsCurrent() == false)
                 .collect(Collectors.groupingBy(a -> a.getFirstName(), Collectors.counting()));
 
 
